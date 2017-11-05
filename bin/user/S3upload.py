@@ -73,6 +73,7 @@ class S3uploadGenerator(weewx.reportengine.ReportGenerator):
         # Build command
         cmd = ["/usr/local/bin/s3cmd"]
         cmd.extend(["sync"])
+        cmd.extend(["--no-mime-magic"])
         cmd.extend(["--access_key=%s" % self.access_key])
         cmd.extend(["--secret_key=%s" % self.secret_token])
         cmd.extend([self.local_root])
@@ -98,7 +99,7 @@ class S3uploadGenerator(weewx.reportengine.ReportGenerator):
         if stroutput.find('Done. Uploaded ') >= 0:
             file_cnt = 0
             for line in iter(stroutput.splitlines()):
-                if line.find('File ') >= 0:
+                if line.find('upload:') >= 0:
                     file_cnt += 1
                 if line.find('Done. Uploaded ') >= 0:
                     # get number of bytes uploaded
