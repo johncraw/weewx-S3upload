@@ -18,7 +18,7 @@ class S3uploadInstaller(ExtensionInstaller):
                     'S3upload': {
                         'skin': 'S3upload',
                         'access_key': 'REPLACE_WITH_YOUR_S3_ACCESS_KEY',
-                        'secrect_token': 'REPLACE_WITH_YOUR_SECRET_TOKEN',
+                        'secret_token': 'REPLACE_WITH_YOUR_SECRET_TOKEN',
                         'bucket_name': 'REPLACE_WITH_YOUR_S3_BUCKET_NAME',}}},
             files=[('bin/user', ['bin/user/S3upload.py']),
                    ('skins/S3upload', ['skins/S3upload/skin.conf'])],
